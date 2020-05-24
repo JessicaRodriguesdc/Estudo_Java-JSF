@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Meetapp</title>
+</h:head>
+<h:body>
+<h1>Cadastrar Eventos</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome do Evento:" />
+			<h:inputText value="#{eventoBean.evento.nome}" />
+
+			<h:outputText value="Nome da organização:" />
+			<h:inputText />
+
+			<h:outputText value="Local:" />
+			<h:inputText />
+
+			<h:outputText value="Data:" />
+			<h:inputText />
+			
+			<h:outputText value="Horário:" />
+			<h:inputText />
+			
+			<h:commandButton value="Cadastrar" action="#{eventoBean.adicionarEvento}"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
