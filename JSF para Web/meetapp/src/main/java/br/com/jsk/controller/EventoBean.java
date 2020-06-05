@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.jsk.model.Evento;
 
 @Named
+@ManagedBean
 @SessionScoped
 public class EventoBean implements Serializable {
 
