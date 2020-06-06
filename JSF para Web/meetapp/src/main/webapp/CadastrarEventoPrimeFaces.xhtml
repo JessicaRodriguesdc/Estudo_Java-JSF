@@ -6,12 +6,17 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<h:outputStylesheet library="css" name="styles.css"/>
 	<title>meetapp</title>
 </h:head>
 <h:body>
-<h1>Cadastrar Eventos</h1>
-	<h:form>
-		<h:panelGrid columns="2">
+<div id="header" class="center">
+	<h:graphicImage id="logo" library="imagens" name="meetapp.png"/>
+</div>
+
+<div class="formulario center">
+	<h:form id="form">
+		<h:panelGrid>
 			<p:outputLabel value="Nome do Evento:"/>
 			<p:inputText value="#{eventoBean.evento.nome}"/>
 
@@ -22,25 +27,28 @@
 			<p:inputText value="#{eventoBean.evento.local}"/>
 
 			<p:outputLabel value="Data:"/>
-			<p:inputText value="#{eventoBean.evento.data}"/>
+			<p:inputText value="#{eventoBean.evento.data}" type="date"/>
 			
 			<p:outputLabel value="Horário:"/>
-			<p:inputText value="#{eventoBean.evento.horario}"/>
+			<p:inputText value="#{eventoBean.evento.horario}" type="time"/>
 			
-			<p:commandButton value="Cadastrar" action="#{eventoBean.adicionarEvento}"/>
-				
+			<h:panelGroup styleClass="center">
+				<p:commandButton id="btn-enviar" value="Cadastrar" 
+					action="#{eventoBean.adicionarEvento}" update="form table"/>
+			</h:panelGroup>
+		
 		</h:panelGrid>
 	</h:form>
-	
-	<h1>Lista de eventos</h1>
-	
-	<p:dataTable value="#{eventoBean.eventos}" var="e" border="1">
-		<p:column headerText="Nome">#{e.nome}</p:column>
-		<p:column headerText="Organizacao">#{e.organizacao}</p:column>
-		<p:column headerText="Local">#{e.local}</p:column>
-		<p:column headerText="Data">#{e.data}</p:column>
-		<p:column headerText="Horario">#{e.horario}</p:column>
-	</p:dataTable>
+</div>	
+	<h:panelGroup styleClass="center">
+		<p:dataTable value="#{eventoBean.eventos}" var="e" border="1" id="table">
+			<p:column headerText="Nome">#{e.nome}</p:column>
+			<p:column headerText="Organizacao">#{e.organizacao}</p:column>
+			<p:column headerText="Local">#{e.local}</p:column>
+			<p:column headerText="Data">#{e.data}</p:column>
+			<p:column headerText="Horario">#{e.horario}</p:column>
+		</p:dataTable>
+	</h:panelGroup>
 	
 </h:body>
 </html>
